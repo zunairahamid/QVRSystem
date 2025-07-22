@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1"
+xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TransferController">
+
+    <!-- Initial Section for Current Owner and Vehicle Details -->
+    <GridPane alignment="CENTER" fx:id="vehicleForm" visible="true">
+     	<Label text="Vehicle VIN:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="vinField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="Current Owner:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="currentOwnerName" promptText="Name" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <TextField fx:id="currentOwnerQID" promptText="QID" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <TextField fx:id="currentOwnerMobile" promptText="Mobile Number" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        <Button fx:id="validateButton" text="Validate" onAction="#validateDetails" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    </GridPane>
+            
+    <!-- Section for New Owner Details (Initially Hidden) -->
+    <GridPane alignment="CENTER" fx:id="newOwnerForm" visible="false">
+    	<Label text="New Owner:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="newOwnerName" promptText="Name" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <TextField fx:id="newOwnerQID" promptText="QID" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+        <TextField fx:id="newOwnerMobile" promptText="Mobile Number" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+        <Button fx:id="confirmButton" text="Confirm Transfer" onAction="#confirmTransfer" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    </GridPane>
+    
+    <!-- Confirmation Message and Actions (Initially Hidden) -->
+    <VBox alignment="CENTER" fx:id="confirmationBox" visible="false" spacing="10">
+        <TextArea fx:id="transferMessage" editable="true"/>
+        <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="pay" text="Pay" onAction="#payTransfer"/>
+            <Button fx:id="cancel" text="Cancel" onAction="#cancelTransfer"/>
+        </HBox>
+    </VBox>
+</VBox>

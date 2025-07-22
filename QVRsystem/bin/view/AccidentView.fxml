@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" 
+xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccidentController">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <!-- Vehicle Information Input Pane -->
+    <GridPane fx:id="vehicles" alignment="CENTER">
+        <Label text="Offending Vehicle VIN:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="offendingVinField" promptText="Offending VIN" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="Victim Vehicle VIN:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="victimVinField" promptText="Victim VIN" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Button fx:id="retrieve" text="Retrieve" GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#retrieveVehicles" />
+    </GridPane>
+
+    <!-- Accident Details Grid Pane (Initially Hidden) -->
+    <GridPane fx:id="accidentDetailsPane" hgap="10" vgap="10" alignment="CENTER" visible="false">
+        <Label text="Date:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="dateField" promptText="Enter Date" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        
+        <Label text="Time:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="timeField" promptText="Enter Time" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        
+        <Label text="Location:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="locationField" promptText="Enter Location" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        
+        <Label text="Description:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextArea fx:id="descriptionField" promptText="Enter Accident Description" wrapText="true" GridPane.rowIndex="3" 
+        GridPane.columnIndex="1" GridPane.rowSpan="2"/>
+        
+        <Button text="Confirm" onAction="#confirmAccident" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+    </GridPane>
+
+    <!-- Final Report Pane (Initially Hidden) -->
+   <VBox fx:id="reportPane" spacing="10" alignment="CENTER" visible="false">
+                <TextArea fx:id="accidentReport" GridPane.rowIndex="6" GridPane.columnIndex="1" wrapText="true" editable="false" />
+                <Button  fx:id="close" text="Close" onAction="#closeApplication" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+            </VBox>
+        </VBox>
